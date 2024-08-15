@@ -10,7 +10,14 @@ export default function home() {
         alignItems: "center",
       }}
     >
-      <Text>home</Text>
+      <Text
+        style={{
+          fontSize: 40,
+          fontFamily: "outfit",
+        }}
+      >
+        Home
+      </Text>
     </View>
   );
 }

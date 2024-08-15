@@ -10,7 +10,14 @@ export default function explore() {
         alignItems: "center",
       }}
     >
-      <Text>explore</Text>
+      <Text
+        style={{
+          fontSize: 40,
+          fontFamily: "outfit",
+        }}
+      >
+        Explore
+      </Text>
     </View>
   );
 }

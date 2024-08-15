@@ -1,16 +1,23 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
 
 export default function profile() {
   return (
     <View
-    style={{
+      style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Text>profile</Text>
+      <Text
+        style={{
+          fontSize: 40,
+          fontFamily: "outfit",
+        }}
+      >
+        Profile
+      </Text>
     </View>
-  )
+  );
 }
