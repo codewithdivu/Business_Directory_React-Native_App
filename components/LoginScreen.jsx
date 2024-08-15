@@ -1,8 +1,35 @@
+import React, { useCallback } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
 import { Colors } from "@/constants/Colors";
+import * as WebBrowser from "expo-web-browser";
+import { useOAuth } from "@clerk/clerk-expo";
+import * as Linking from "expo-linking";
+import useWarmUpBrowser from "../hooks/useWarmUpBrowser";
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen() {
+  useWarmUpBrowser();
+
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+
+  const handleSignIn = useCallback(async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } =
+        await startOAuthFlow({
+          redirectUrl: Linking.createURL("/dashboard", { scheme: "myapp" }),
+        });
+
+      if (createdSessionId) {
+        setActive({ session: createdSessionId });
+      } else {
+        // Use signIn or signUp for next steps such as MFA
+      }
+    } catch (err) {
+      console.error("OAuth error", err);
+    }
+  }, []);
+
   return (
     <View>
       <View
@@ -66,6 +93,7 @@ export default function LoginScreen() {
             borderRadius: 99,
             marginTop: 20,
           }}
+          onPress={handleSignIn}
         >
           <Text
             style={{
