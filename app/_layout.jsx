@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import { SignedIn, SignedOut } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
-import { Text, View } from "react-native";
+import LoginScreen from "../components/LoginScreen";
 
 export default function RootLayout() {
   useFonts({
@@ -58,21 +58,7 @@ export default function RootLayout() {
           </Stack>
         </SignedIn>
         <SignedOut>
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 50,
-              }}
-            >
-              LogIn
-            </Text>
-          </View>
+          <LoginScreen />
         </SignedOut>
       </ClerkLoaded>
     </ClerkProvider>
