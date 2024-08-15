@@ -1,23 +1,15 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { View } from "react-native";
+import Header from "../../components/Home/Header";
+import Slider from "../../components/Home/Slider";
+import Category from "../../components/Home/Category";
 
 export default function home() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text
-        style={{
-          fontSize: 40,
-          fontFamily: "outfit",
-        }}
-      >
-        Home
-      </Text>
+    <View>
+      <Header />
+      <Slider />
+      <Category />
     </View>
   );
 }

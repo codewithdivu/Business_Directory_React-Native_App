@@ -1,9 +1,14 @@
+// react
 import React, { useCallback } from "react";
+// react-native
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import { Colors } from "@/constants/Colors";
+// components
 import * as WebBrowser from "expo-web-browser";
-import { useOAuth } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
+// constants
+import { Colors } from "@/constants/Colors";
+// hooks
+import { useOAuth } from "@clerk/clerk-expo";
 import useWarmUpBrowser from "../hooks/useWarmUpBrowser";
 
 WebBrowser.maybeCompleteAuthSession();
